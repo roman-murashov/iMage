@@ -14,7 +14,7 @@
 		mysql_close();
 		print "<!-- iMage v.0.1.1 -->\n";
 	}
-	function generatePassword($length = 8){
+	function generateName($length = 8){
 		$chars = 'abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$numChars = strlen($chars);
 		$string = '';
