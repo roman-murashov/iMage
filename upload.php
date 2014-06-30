@@ -1,7 +1,7 @@
 ﻿<?
 	include "func.php";
 
-	if(preg_match("/(gif|jpg|jpeg|png)$/", $_FILES['userfile']['name'])) 
+	if(preg_match("/(gif|jpg|jpeg|png|GIF|JPG|JPEG|PNG)$/", $_FILES['userfile']['name'])) 
 	{
 		dbconnect();
 		//
