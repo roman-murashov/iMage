@@ -14,8 +14,8 @@
 		mysql_close();
 		print "<!-- iMage v.0.1.1 -->\n";
 	}
-	function generateName($length = 8){
-		$chars = 'abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	function generateName($length = 8) {
+		$chars = 'ABCDEFGHIJKLM'.md5(uniqid(md5('abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ'))).'NOPQRSTUVWXYZ';
 		$numChars = strlen($chars);
 		$string = '';
 		for ($i = 0; $i < $length; $i++) {
