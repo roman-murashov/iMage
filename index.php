@@ -34,6 +34,7 @@
 		</div>
 	</div>
 	
+	<? if ($_GET['upload'] == "1") { } else { ?>
 	<div class="last">
 		<ul>
 		<? while ($row = mysql_fetch_assoc($sql)) { ?>
@@ -41,14 +42,17 @@
 		<? } ?>
 		</ul>
 	</div>
+	<? } ?>
 	
 	<div class="wrapper">
 		<? if ($_GET == null) { } else if ($_GET['upload'] == "1") { ?>
+		<div class="centre">
 			<form name="upload" action="/?upload=2" method="POST" ENCTYPE="multipart/form-data">
-			<b>Выбрать изображение:</b><br>
+			<b>Выбрать изображение (максимум одно)</b><br>
 			<input type="file" name="userfile"><br>
 			<input type="submit" name="upload" value="Загрузить">
 			</form>
+		</div>
 		<? } else { ?>
 			<div class="image">
 				<a href="<?=$url?>" target="_blank"><img src="<?=$url?>"/></a>
