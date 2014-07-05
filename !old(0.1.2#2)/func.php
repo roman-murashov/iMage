@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	$host = "";
 	$user = "";
 	$pass = "";
@@ -12,16 +12,14 @@
 	}
 	function dbclose() {
 		mysql_close();
-	}
-	function iMage() {
-		print "<!-- iMage v.0.2.1 -->\n";
+		print "<!-- iMage v.0.1.1 -->\n";
 	}
 	function generateName($length = 8) {
 		$chars = 'ABCDEFGHIJKLM'.md5(uniqid(md5('abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ'))).'NOPQRSTUVWXYZ';
 		$numChars = strlen($chars);
 		$string = '';
 		for ($i = 0; $i < $length; $i++) {
-			$string .= substr($chars, rand(1, $numChars) - 1, 1);
+		$string .= substr($chars, rand(1, $numChars) - 1, 1);
 		}
 		return $string;
 	}

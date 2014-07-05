@@ -1,51 +1,39 @@
--- MySQL dump 10.13  Distrib 5.1.73, for debian-linux-gnu (i486)
+-- phpMyAdmin SQL Dump
+-- version 3.3.7deb7
+-- http://www.phpmyadmin.net
 --
--- Host: localhost    Database: cdn
--- ------------------------------------------------------
--- Server version	5.1.73-1
+-- Хост: localhost
+-- Время создания: Июл 05 2014 г., 14:39
+-- Версия сервера: 5.1.73
+-- Версия PHP: 5.3.3-7+squeeze18
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `images`
+-- База данных: `cdn_ajax`
 --
 
-DROP TABLE IF EXISTS `images`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `images` (
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `images`
+--
+
+CREATE TABLE IF NOT EXISTS `images` (
   `id` int(11) NOT NULL,
   `code` text NOT NULL,
   `hash` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `images`
+-- Дамп данных таблицы `images`
 --
 
-LOCK TABLES `images` WRITE;
-/*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,'Q260tyUa','de8b7f3f4934f3b200ff0bcdf405d959');
-/*!40000 ALTER TABLE `images` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2014-06-23 13:37:13
+INSERT INTO `images` (`id`, `code`, `hash`) VALUES
+(1, '3F9QZ79f', 'af08c9320fded9229aac6ee2a008a00e');
