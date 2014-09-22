@@ -1,4 +1,4 @@
-<?
+﻿<?
 	if ($_GET['f'] != null) {
 		$file = md5($_GET['f']);
 		$url = "http://".$_SERVER['SERVER_NAME']."/go/".$file;

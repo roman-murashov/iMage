@@ -11,16 +11,27 @@
 		$res = mysql_query("select `id` from `images`");
 		$id = mysql_num_rows($res)+1;
 		$uploadfile = $uploaddir . basename($hash);
-
 		if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-			print "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http://".$_SERVER['SERVER_NAME']."/?f=".$rand."\">";
-			mysql_query("INSERT INTO images(`code`,`hash`,`id`) VALUES('$rand','$hash','$id') ");
+			$urltoimg = "http://".$_SERVER['SERVER_NAME']."/go/".$hash;
+			$image_hash = sha1_file($urltoimg);
+			
+			$selme = mysql_query("SELECT * FROM `images` WHERE image_hash='{$image_hash}'");
+			$gimg = mysql_fetch_assoc($selme);
+			
+			if ($image_hash == $gimg['image_hash']) {
+				print "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http://".$_SERVER['SERVER_NAME']."/?f=".$gimg['code']."\">";
+				$already = "../go/".$hash;
+				unlink($already);
+			} else {
+				print "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http://".$_SERVER['SERVER_NAME']."/?f=".$rand."\">";
+				mysql_query("INSERT INTO images(`code`,`hash`,`id`,`image_hash`) VALUES('$rand','$hash','$id','$image_hash') ");
+			}
 		} else {
-			echo "Îøèáêà çàãðóçêè ôàéëà. Ïîïðîáóéòå åùå ðàç.\n";
+			echo "ÐžÑˆÐ¸Ð±ÐºÐ° Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸ Ñ„Ð°Ð¹Ð»Ð°. ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ðµ Ñ€Ð°Ð·.\n";
 		}
 		//
 		dbclose();
 	} else {
-		echo "Çàãðóæàòü ìîæíî òîëüêî êàðòèíêè!";
+		echo "Ð—Ð°Ð³Ñ€ÑƒÐ¶Ð°Ñ‚ÑŒ Ð¼Ð¾Ð¶Ð½Ð¾ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ¸!";
 	}
 ?>

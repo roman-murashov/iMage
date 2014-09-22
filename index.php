@@ -4,7 +4,7 @@
 	$thispage = "http://".$_SERVER['SERVER_NAME']."".$_SERVER['REQUEST_URI'];
 	$imghash = md5($_GET['f']);
 	$urltoimg = "http://".$_SERVER['SERVER_NAME']."/go/".$imghash;
-
+	$hash = sha1_file($urltoimg);
 	iMage();
 ?>
 <html>
@@ -90,6 +90,8 @@
 			<input value="<?=$thispage?>" id="short" onClick="this.select()" style="width: 100%;"/>
 			<div class="text">Прямая ссылка:</div>
 			<input value="<?=$urltoimg?>" id="short" onClick="this.select()" style="width: 100%;"/>
+			<div class="text">Хэш изображения:</div>
+			<input value="<?=$hash?>" id="short" onClick="this.select()" style="width: 100%;"/>
 		</div>
 	
 	<? } ?>
