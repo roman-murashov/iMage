@@ -1,7 +1,7 @@
 iMage v.0.2.2
 =====
 
-<img src="http://99803.selcdn.ru/i/i/2014-06-23_130743.png" />
+<img src="http://skripters.org/uploads/images/54a51558567d9.png" />
 
 <b>Установка:</b><br>
 1. Скачать и закинуть файлы на хостинг.<br>
