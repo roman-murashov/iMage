@@ -1,0 +1,210 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+body {
+    padding: 0;
+    background: #fff;
+    font-family:'Roboto', sans-serif;
+}
+
+#n_headline {
+    width: 100%;
+
+    .container {
+
+        height: 50px;
+        padding: 16px;
+
+        .logotype {
+            float: left;
+
+            a {
+                text-decoration: none;
+                font-size: 18px;
+                color: #ec5353;
+
+                &:hover {
+                    color: lighten(#ec5353, 20%);
+                }
+            }
+        }
+
+        .links {
+            float: right;
+
+            ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            li {
+                list-style-type: none;
+                float: left;
+                margin-right: 16px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #191919;
+                    font-size: 14px;
+
+                    &:hover {
+                        color: lighten(#191919, 20%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+#n_upload {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .container {
+        .form {
+            width: 420px;
+            position: relative;
+
+            .upload {
+                position: relative;
+                width: 100%;
+                height: 60px;
+
+                &:after {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 100;
+
+                    display: block;
+                    padding: 10px 15px;
+
+                    width: calc(100% - 133px);
+                    height: 40px;
+                    line-height: 40px;
+                    border-raidus: 5px 10px 10px 5px;
+
+                    font-size: 18px;
+                    font-weight: 300;
+                    color: #191919;
+
+                    content: attr(data-text);
+                    pointer-events: none;
+
+                    //background: rgba(#191919, .1);
+                    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#191919+0,ffffff+100&0.1+0,0+100 */
+                    background: -moz-linear-gradient(left,  rgba(25,25,25,0.1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(left,  rgba(25,25,25,0.1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to right,  rgba(25,25,25,0.1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a191919', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+
+                }
+
+                &:before {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    z-index: 99;
+
+                    display: block;
+                    padding: 0 15px;
+
+                    background: rgba(#191919, .3);
+                    height: 60px;
+                    line-height: 60px;
+
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: #fff;
+                    text-transform: uppercase;
+
+                    content: 'Выбрать';
+
+                    &:hover {
+                        background: #3d8c63;
+                    }
+                }
+
+                input[type="file"] {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 99;
+
+                    display: block;
+                    cursor: pointer;
+
+                    opacity: 0;
+
+                    width: 100%;
+                    height: 60px;
+
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+
+            input[type="submit"] {
+                position: absolute;
+                top: 76px;
+                left: 50%;
+                transform: translate(-50%, 0%);
+
+
+                padding: 0 15px;
+
+                background: #ec5353;
+                height: 60px;
+                line-height: 60px;
+
+                font-size: 16px;
+                font-weight: 700;
+                color: #fff;
+                text-transform: uppercase;
+                border: 0;
+                border-radius: 0;
+                outline: none;
+
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+#n_result {
+    display: none;
+
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        #result {
+            outline: none;
+            width: 400px;
+            color: #191919;
+            padding: 16px;
+            border: 1px solid rgba(#191919, .3);
+            border-radius: 0px;
+        }
+
+        .link {
+            a {
+                text-decoration: none;
+                color: rgba(#191919, .5);
+                font-size: 14px;
+                margin-top: 16px;
+                cursor: pointer;
+            }
+        }
+    }
+}
