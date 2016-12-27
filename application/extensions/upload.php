@@ -12,10 +12,39 @@
     $user = new userClass();
     $spoga = new spogaCrypt;
 
+    $allowed = array( "image/pjpeg","image/jpeg","image/jpg","image/png","image/x-png","image/gif");
+
+    function isImage($file) {
+        $fh = fopen($file, 'rb');
+        if ($fh) {
+            $bytes = fread($fh, 6);
+            fclose($fh);
+
+            if ($bytes === false) {
+                return false;
+            }
+
+            if (substr($bytes,0,3) == "\xff\xd8\xff") {
+                return 'image/jpeg';
+            }
+            if ($bytes == "\x89PNG\x0d\x0a") {
+                return 'image/png';
+            }
+            if ($bytes == "GIF87a" or $bytes == "GIF89a") {
+                return 'image/gif';
+            }
+
+            //return 'application/octet-stream';
+        }
+        return false;
+    }
+
     if (!empty($_FILES)) {
-        if(preg_match("/(gif|jpg|jpeg|png|GIF|JPG|JPEG|PNG)$/", $_FILES['file']['name'])) {
-            if ($_FILES['file']['tmp_name'] == '') {
-                echo 'Файл не был передан.';
+        if ($_FILES['file']['tmp_name'] == '') {
+            echo 'Файл не был передан.';
+        } else {
+            if (!in_array(isImage($_FILES['file']['tmp_name']), $allowed)) {
+                echo "Загружать можно только картинки!";
             } else {
                 $now = date('Y_m_d');
                 $userfolder = ROOT . DS . $ae->site()['upload_folder'] . DS . $now . DS;
@@ -34,7 +63,6 @@
 
                 echo 'http://' . DOMAIN . $target_res;
             }
-        } else {
-            echo "Загружать можно только картинки!";
         }
     }
+
